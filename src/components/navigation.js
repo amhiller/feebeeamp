@@ -12,6 +12,7 @@ const Navigation = () => {
                             <Nav.Link href='/'>Home</Nav.Link>
                             <Nav.Link href='signup'>Sign Up</Nav.Link>
                             <Nav.Link href='signin'>Sign In</Nav.Link>
+                            <Nav.Link href='userhome'>UserHome</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
