@@ -9,6 +9,7 @@ import awsExports from './aws-exports'
 import Home from './pages/home'
 import Signin from './pages/signin'
 import Signup from './pages/signup'
+import Signout from './pages/signout'
 import Navigation from './components/navigation';
 import Userhome from './pages/userhome'
 import Projects from './pages/projects'
@@ -37,6 +38,7 @@ function App( { signOut, user }) {
         <Route path="signin" element={<Signin/> } />
         <Route path="userhome" element={<Userhome/>} />
         <Route path="projects" element={<Projects/>} />
+        <Route path="signout" element={<Signout/>} />
       </Routes>
     </BrowserRouter>
   );

@@ -14,3 +14,11 @@ type Project @model @auth(rules: [ { allow: owner } ]) {
   name: String!
   description: String
 }
+
+type Profile @model @auth(rules: [ { allow: owner }]) {
+  id: ID!
+  firstName: String
+  lastName: String
+  companyName: String
+  bio: String
+}

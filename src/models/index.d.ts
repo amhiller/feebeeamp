@@ -12,6 +12,10 @@ type ProjectMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
+type ProfileMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 export declare class Note {
   readonly id: string;
   readonly name: string;
@@ -30,4 +34,16 @@ export declare class Project {
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Project, ProjectMetaData>);
   static copyOf(source: Project, mutator: (draft: MutableModel<Project, ProjectMetaData>) => MutableModel<Project, ProjectMetaData> | void): Project;
+}
+
+export declare class Profile {
+  readonly id: string;
+  readonly firstName?: string | null;
+  readonly lastName?: string | null;
+  readonly companyName?: string | null;
+  readonly bio?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<Profile, ProfileMetaData>);
+  static copyOf(source: Profile, mutator: (draft: MutableModel<Profile, ProfileMetaData>) => MutableModel<Profile, ProfileMetaData> | void): Profile;
 }

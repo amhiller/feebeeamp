@@ -80,7 +80,6 @@ function Projects ({signOut, user}) {
                 ))
               }
             </div>
-            <button onClick={signOut}>Sign Out</button>
           </header>
         </div>
       );

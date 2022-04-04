@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Container} from 'react-bootstrap'
+import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 
 const Navigation = () => {
     return (
@@ -14,6 +15,7 @@ const Navigation = () => {
                             <Nav.Link href='signin'>Sign In</Nav.Link>
                             <Nav.Link href='userhome'>UserHome</Nav.Link>
                             <Nav.Link href='projects'>Projects</Nav.Link>
+                            <Nav.Link href='signout'>Sign Out</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
