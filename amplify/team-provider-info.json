@@ -14,6 +14,16 @@
     "categories": {
       "auth": {
         "feebeeamp8c55feb1": {}
+      },
+      "function": {
+        "feebeeamplayer7dc86e60": {
+          "deploymentBucketName": "amplify-amplifyc3202c3c37094-staging-233531-deployment",
+          "s3Key": "amplify-builds/feebeeamplayer7dc86e60-LambdaLayerVersion7e06573d-build.zip"
+        },
+        "feebeeamp7aab853e": {
+          "deploymentBucketName": "amplify-amplifyc3202c3c37094-staging-233531-deployment",
+          "s3Key": "amplify-builds/feebeeamp7aab853e-32446576616d766d5149-build.zip"
+        }
       }
     }
   }

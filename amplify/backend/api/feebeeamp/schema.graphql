@@ -7,3 +7,10 @@ type Note @model {
   name: String!
   description: String
 }
+
+
+type Project @model @auth(rules: [ { allow: owner } ]) {
+  id: ID!
+  name: String!
+  description: String
+}

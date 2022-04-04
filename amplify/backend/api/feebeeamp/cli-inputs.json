@@ -5,8 +5,21 @@
     "serviceName": "AppSync",
     "gqlSchemaPath": "C:\\Users\\amhil\\serverless-feebee\\feebeeamp\\amplify\\backend\\api\\feebeeamp\\schema.graphql",
     "defaultAuthType": {
-      "mode": "API_KEY",
-      "expirationTime": 7
-    }
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authfeebeeamp8c55feb1"
+    },
+    "conflictResolution": {
+      "defaultResolutionStrategy": {
+        "type": "AUTOMERGE"
+      }
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "API_KEY",
+        "expirationTime": 7,
+        "apiKeyExpirationDate": "2022-04-11T00:54:41.029Z",
+        "keyDescription": "testing auth"
+      }
+    ]
   }
 }
