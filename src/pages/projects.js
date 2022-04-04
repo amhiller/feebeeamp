@@ -6,6 +6,7 @@ import Amplify from 'aws-amplify';
 import { API } from 'aws-amplify';
 import awsExports from '../aws-exports'
 import { listProjects } from '../graphql/queries';
+import Card from 'react-bootstrap/Card'
 import { createProject as CreateProjectMutation, deleteProject as DeleteProjectMutation } from '../graphql/mutations';
 console.log(awsExports)
 Amplify.configure(awsExports);
@@ -68,7 +69,7 @@ function Projects ({signOut, user}) {
               placeholder="Project Description"
               value={formData.description}
             />
-            <button onClick={createProject}> CreateProject </button>
+            <button variant="primary" onClick={createProject}> CreateProject </button>
             <div style={{marginBottom: 30}}>
               {
                 projects.map((project, index) => (
@@ -76,6 +77,16 @@ function Projects ({signOut, user}) {
                     <h2>{project.name}</h2>
                     <p>{project.description}</p>
                     <button onClick={() => deleteProject(project)}>Delete Project</button>
+
+                    <Card style={{ width: "18rem" }}>
+                      <Card.Body>
+                        <Card.Title style={{ color: "blue"}}>{project.name}</Card.Title>
+                        <Card.Text style={{ color: "blue" }}>
+                          {project.description}
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+
                   </div>
                 ))
               }

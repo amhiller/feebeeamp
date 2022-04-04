@@ -7,6 +7,7 @@ function Signup() {
         <header className="App-header">
           <h1>Welcome to Sign Up</h1>
           <button>Sign Up?</button>
+          <h2>This button does not work</h2>
         </header>
       </div>
     )
