@@ -8,13 +8,19 @@ import awsExports from '../aws-exports'
 import { listProjects } from '../graphql/queries';
 import Card from 'react-bootstrap/Card'
 import { createProject as CreateProjectMutation, deleteProject as DeleteProjectMutation } from '../graphql/mutations';
+import { Link } from 'react-router-dom';
+
 console.log(awsExports)
 Amplify.configure(awsExports);
+
+
+
 
 
 const initialFormState = { name: '', description: ''}
 
 function Projects ({signOut, user}) {
+
 
     const [ projects, setProjects] = useState([]);
     const [ formData, setFormData] = useState(initialFormState);
@@ -83,6 +89,10 @@ function Projects ({signOut, user}) {
                         <Card.Title style={{ color: "blue"}}>{project.name}</Card.Title>
                         <Card.Text style={{ color: "blue" }}>
                           {project.description}
+                          {project.id}
+                          <Link to={project.id}>
+                            <button>project</button>
+                          </Link>
                         </Card.Text>
                       </Card.Body>
                     </Card>

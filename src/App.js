@@ -13,6 +13,7 @@ import Signout from './pages/signout'
 import Navigation from './components/navigation';
 import Userhome from './pages/userhome'
 import Projects from './pages/projects'
+import Project from './pages/project'
 
 console.log(awsExports)
 Amplify.configure(awsExports);
@@ -34,11 +35,12 @@ function App( { signOut, user }) {
     <Navigation/>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="signup" element={<Signup/> } />
-        <Route path="signin" element={<Signin/> } />
-        <Route path="userhome" element={<Userhome/>} />
-        <Route path="projects" element={<Projects/>} />
-        <Route path="signout" element={<Signout/>} />
+        <Route path="/signup" element={<Signup/> } />
+        <Route path="/signin" element={<Signin/> } />
+        <Route path="/userhome" element={<Userhome/>} />
+        <Route path="/projects" element={<Projects/>} />
+        <Route path="/signout" element={<Signout/>} />
+        <Route path="/projects/:projectId" element={<Project/>} />
       </Routes>
     </BrowserRouter>
   );
