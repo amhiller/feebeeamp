@@ -90,7 +90,7 @@ function Projects ({signOut, user}) {
                         <Card.Text style={{ color: "blue" }}>
                           {project.description}
                           {project.id}
-                          <Link to={project.id}>
+                          <Link to={project.id} state={project}>
                             <button>project</button>
                           </Link>
                         </Card.Text>
