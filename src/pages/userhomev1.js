@@ -32,13 +32,6 @@ function Userhomev1({ user }) {
                       </Container>
                   </div>
               </Grid>
-              <Grid item xs={8}>
-                <div className="test1">
-                  <Box sx={{ display: 'flex'}}>
-                    <h1>test</h1>
-                  </Box>
-                </div>
-              </Grid>
   
             </Grid>
 
