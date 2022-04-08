@@ -57,6 +57,10 @@
   width: 50px;
 }
 
+.sign-in {
+  background-color: #ffffff
+}
+
 .App-header-2 {
   background-color: #282c34;
   min-height: 100vh;
