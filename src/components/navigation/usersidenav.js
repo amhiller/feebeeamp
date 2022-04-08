@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.css'
-import logo from '../../pictures/feebee-logo2.PNG'
+import logo from '../../pictures/feebee-logo2.png'
 import {
   CDBSidebar,
   CDBSidebarContent,
