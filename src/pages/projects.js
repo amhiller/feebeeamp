@@ -75,14 +75,17 @@ function Projects ({signOut, user}) {
               placeholder="Project Description"
               value={formData.description}
             />
-            <button variant="primary" onClick={createProject}> CreateProject </button>
+            <button onClick={createProject}> CreateProject </button>
             <div style={{marginBottom: 30}}>
               {
                 projects.map((project, index) => (
                   <div key={project.id || project.name}>
                     <h2>{project.name}</h2>
                     <p>{project.description}</p>
-                    <button onClick={() => deleteProject(project)}>Delete Project</button>
+                    <Link to="/projects">
+                      <button onClick={() => deleteProject(project)}>Delete Project</button>
+                    </Link>
+                    
 
                     <Card style={{ width: "18rem" }}>
                       <Card.Body>

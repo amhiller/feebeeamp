@@ -14,6 +14,9 @@ import Navigation from './components/navigation';
 import Userhome from './pages/userhome'
 import Projects from './pages/projects'
 import Project from './pages/project'
+import Userhomev1 from './pages/userhomev1'
+
+import Sidebar from './components/navigation/usersidenav'
 
 console.log(awsExports)
 Amplify.configure(awsExports);
@@ -32,7 +35,7 @@ function App( { signOut, user }) {
 
   return (
     <BrowserRouter>
-    <Navigation/>
+    <Navigation/> 
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/signup" element={<Signup/> } />
@@ -41,6 +44,7 @@ function App( { signOut, user }) {
         <Route path="/projects" element={<Projects/>} />
         <Route path="/signout" element={<Signout/>} />
         <Route path="/projects/:projectId" element={<Project/>} />
+        <Route path="/userhomev1" element={<Userhomev1/>} />
       </Routes>
     </BrowserRouter>
   );

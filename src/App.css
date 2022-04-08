@@ -14,14 +14,47 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #DEEBEF;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #041E77;
+}
+
+.User-Dash {
+  background-color: #EFF2F4;
+  color: #041E77;
+  flex-direction: column;
+}
+
+.test {
+  background-color: #D3F8FB;
+  color: #000;
+  position: absolute;
+  width: 1020px;
+  height: 210px;
+  left: 345px;
+  top: 165px;
+  align-items: right;
+}
+
+.test1 {
+  background-color: #D3F8FB;
+  color: #000;
+  position: absolute;
+  width: 1020px;
+  height: 210px;
+  left: 345px;
+  top: 600px;
+  align-items: center;
+}
+
+.photo {
+  height: 50px;
+  width: 50px;
 }
 
 .App-header-2 {

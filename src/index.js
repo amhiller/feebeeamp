@@ -6,7 +6,16 @@ import reportWebVitals from './reportWebVitals';
 //updates
 import Amplify from 'aws-amplify';
 import config from "./aws-exports";
+
+//react update
+//import { createRoot } from "react-dom/client";
+
 Amplify.configure(config);
+
+//react upgrade
+//const rootElement = document.getElementById("app");
+//const root = createRoot(rootElement);
+
 
 ReactDOM.render(
   <React.StrictMode>
