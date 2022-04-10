@@ -44,6 +44,7 @@ function Basic() {
   async function signOut() {
     try {
       await Auth.signOut()
+      console.log("user signout successful")
     } catch (err) {
       console.log('Error signing outr', err)
     }

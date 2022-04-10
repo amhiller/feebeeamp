@@ -43,9 +43,10 @@ function Basic() {
 
   async function signIn() {
     try {
-      console.log(formData)
       setFormData(initialFormState)
-      await Auth.signIn(formData.email, formData.password)
+      const user = await Auth.signIn(formData.email, formData.password)
+      console.log("success")
+      console.log(user)
     } catch (err) {
       console.log(err)
     }
