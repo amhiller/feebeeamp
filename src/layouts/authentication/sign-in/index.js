@@ -48,6 +48,9 @@ function Basic() {
           <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
             FeeBee Sign in
           </MDTypography>
+          <MDTypography display="block" variant="button" color="white" my={1}>
+            Enter your email and password
+          </MDTypography>
         </MDBox>
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
