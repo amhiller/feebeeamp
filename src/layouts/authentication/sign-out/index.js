@@ -41,13 +41,11 @@ function Basic() {
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
-  async function signIn() {
+  async function signOut() {
     try {
-      console.log(formData)
-      setFormData(initialFormState)
-      await Auth.signIn(formData.email, formData.password)
+      await Auth.signOut()
     } catch (err) {
-      console.log(err)
+      console.log('Error signing outr', err)
     }
   }
 
@@ -66,56 +64,23 @@ function Basic() {
           textAlign="center"
         >
           <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
-            FeeBee Sign in
+            FeeBee Sign Out
           </MDTypography>
           <MDTypography display="block" variant="button" color="white" my={1}>
-            Enter your email and password
+            to sign out, click the button below
           </MDTypography>
         </MDBox>
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
-            <MDBox mb={2}>
-              <MDInput 
-                onChange={e => setFormData({...formData, 'email': e.target.value})}
-                type="email" 
-                label="Email" 
-                fullWidth 
-                value={formData.email}
-              />
-            </MDBox>
-            <MDBox mb={2}>
-              <MDInput 
-                onChange={e => setFormData({...formData, 'password': e.target.value})}
-                type="password" 
-                label="Password" 
-                fullWidth 
-                value={formData.password}
-              />
-            </MDBox>
             <MDBox mt={4} mb={1}>
               <MDButton 
                 variant="gradient" 
                 color="info" 
                 fullWidth
-                onClick={() => signIn(formData)}
+                onClick={() => signOut()}
                 >
-                sign in
+                sign out
               </MDButton>
-            </MDBox>
-            <MDBox mt={3} mb={1} textAlign="center">
-              <MDTypography variant="button" color="text">
-                Don&apos;t have an account?{" "}
-                <MDTypography
-                  component={Link}
-                  to="/authentication/sign-up"
-                  variant="button"
-                  color="info"
-                  fontWeight="medium"
-                  textGradient
-                >
-                  Sign up
-                </MDTypography>
-              </MDTypography>
             </MDBox>
           </MDBox>
         </MDBox>

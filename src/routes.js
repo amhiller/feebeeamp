@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 /** 
   All of the routes for the Material Dashboard 2 React are added here,
   You can add a new route, customize the routes and delete the routes here.
@@ -42,6 +27,7 @@ Coded by www.creative-tim.com
 // import Notifications from "layouts/notifications";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
+import SignOut from "layouts/authentication/sign-out";
 import Profile from "layouts/profile";
 
 // @mui icons
@@ -63,6 +49,14 @@ const routes = [
     icon: <Icon fontSize="small">assignment</Icon>,
     route: "/authentication/sign-up",
     component: <SignUp />
+  },
+  {
+    type: "collapse",
+    name: "Sign Out",
+    key: "sign-out",
+    icon: <Icon fontSize="small">logout</Icon>,
+    route: "/authentication/sign-out",
+    component: <SignOut />
   },
   {
     type: "collapse",
