@@ -1,53 +1,183 @@
-import React, { useEffect, useState } from 'react'
-import './App.css';
-import '@aws-amplify/ui-react/styles.css';
-import Amplify from 'aws-amplify';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useState, useEffect, useMemo } from "react";
 
-import awsExports from './aws-exports'
+// react-router components
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
-import Home from './pages/home'
-import Signin from './pages/signin'
-import Signup from './pages/signup'
-import Signout from './pages/signout'
-import Navigation from './components/navigation';
-import Userhome from './pages/userhome'
-import Projects from './pages/projects'
-import Project from './pages/project'
-import Userhomev1 from './pages/userhomev1'
+// @mui material components
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import Icon from "@mui/material/Icon";
 
-import Sidebar from './components/navigation/usersidenav'
+// Material Dashboard 2 React components
+import MDBox from "components/MDBox";
 
-console.log(awsExports)
-Amplify.configure(awsExports);
+// Material Dashboard 2 React example components
+import Sidenav from "examples/Sidenav";
+import Configurator from "examples/Configurator";
 
-//const initialFormState = { name: '', description: '' }
+// Material Dashboard 2 React themes
+import theme from "assets/theme";
+import themeRTL from "assets/theme/theme-rtl";
 
-function App( { signOut, user }) {
+// Material Dashboard 2 React Dark Mode themes
+import themeDark from "assets/theme-dark";
+import themeDarkRTL from "assets/theme-dark/theme-rtl";
 
-  //const [ notes, setNotes ] = useState([]);
-  //const [formData, setFormData] = useState(initialFormState);
+// RTL plugins
+import rtlPlugin from "stylis-plugin-rtl";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
 
-  //useEffect(() => {
-  //  fetchNotes();
-  //}, []);
+// Material Dashboard 2 React routes
+import routes from "routes";
 
+// Material Dashboard 2 React contexts
+import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "context";
 
-  return (
-    <BrowserRouter>
-    <Navigation/> 
+// Images
+import brandWhite from "assets/images/feebee-sidebar-light.svg";
+import brandDark from "assets/images/feebee-sidebar-dark.svg";
+
+export default function App() {
+  const [controller, dispatch] = useMaterialUIController();
+  const {
+    miniSidenav,
+    direction,
+    layout,
+    openConfigurator,
+    sidenavColor,
+    transparentSidenav,
+    whiteSidenav,
+    darkMode,
+  } = controller;
+  const [onMouseEnter, setOnMouseEnter] = useState(false);
+  const [rtlCache, setRtlCache] = useState(null);
+  const { pathname } = useLocation();
+
+  // Cache for the rtl
+  useMemo(() => {
+    const cacheRtl = createCache({
+      key: "rtl",
+      stylisPlugins: [rtlPlugin],
+    });
+
+    setRtlCache(cacheRtl);
+  }, []);
+
+  // Open sidenav when mouse enter on mini sidenav
+  const handleOnMouseEnter = () => {
+    if (miniSidenav && !onMouseEnter) {
+      setMiniSidenav(dispatch, false);
+      setOnMouseEnter(true);
+    }
+  };
+
+  // Close sidenav when mouse leave mini sidenav
+  const handleOnMouseLeave = () => {
+    if (onMouseEnter) {
+      setMiniSidenav(dispatch, true);
+      setOnMouseEnter(false);
+    }
+  };
+
+  // Change the openConfigurator state
+  const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
+
+  // Setting the dir attribute for the body element
+  useEffect(() => {
+    document.body.setAttribute("dir", direction);
+  }, [direction]);
+
+  // Setting page scroll to 0 when changing the route
+  useEffect(() => {
+    document.documentElement.scrollTop = 0;
+    document.scrollingElement.scrollTop = 0;
+  }, [pathname]);
+
+  const getRoutes = (allRoutes) =>
+    allRoutes.map((route) => {
+      if (route.collapse) {
+        return getRoutes(route.collapse);
+      }
+
+      if (route.route) {
+        return <Route exact path={route.route} element={route.component} key={route.key} />;
+      }
+
+      return null;
+    });
+
+  const configsButton = (
+    <MDBox
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      width="3.25rem"
+      height="3.25rem"
+      bgColor="white"
+      shadow="sm"
+      borderRadius="50%"
+      position="fixed"
+      right="2rem"
+      bottom="2rem"
+      zIndex={99}
+      color="dark"
+      sx={{ cursor: "pointer" }}
+      onClick={handleConfiguratorOpen}
+    >
+      <Icon fontSize="small" color="inherit">
+        settings
+      </Icon>
+    </MDBox>
+  );
+
+  return direction === "rtl" ? (
+    <CacheProvider value={rtlCache}>
+      <ThemeProvider theme={darkMode ? themeDarkRTL : themeRTL}>
+        <CssBaseline />
+        {layout === "dashboard" && (
+          <>
+            <Sidenav
+              color={sidenavColor}
+              brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
+              brandName="FeeBee"
+              routes={routes}
+              onMouseEnter={handleOnMouseEnter}
+              onMouseLeave={handleOnMouseLeave}
+            />
+            <Configurator />
+            {configsButton}
+          </>
+        )}
+        {layout === "vr" && <Configurator />}
+        <Routes>
+          {getRoutes(routes)}
+          <Route path="*" element={<Navigate to="/dashboard" />} />
+        </Routes>
+      </ThemeProvider>
+    </CacheProvider>
+  ) : (
+    <ThemeProvider theme={darkMode ? themeDark : theme}>
+      <CssBaseline />
+      {layout === "dashboard" && (
+        <>
+          <Sidenav
+            color={sidenavColor}
+            brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
+            brandName="FeeBee"
+            routes={routes}
+            onMouseEnter={handleOnMouseEnter}
+            onMouseLeave={handleOnMouseLeave}
+          />
+          <Configurator />
+          {configsButton}
+        </>
+      )}
+      {layout === "vr" && <Configurator />}
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/signup" element={<Signup/> } />
-        <Route path="/signin" element={<Signin/> } />
-        <Route path="/userhome" element={<Userhome/>} />
-        <Route path="/projects" element={<Projects/>} />
-        <Route path="/signout" element={<Signout/>} />
-        <Route path="/projects/:projectId" element={<Project/>} />
-        <Route path="/userhomev1" element={<Userhomev1/>} />
+        {getRoutes(routes)}
+        <Route path="*" element={<Navigate to="/profile" />} />
       </Routes>
-    </BrowserRouter>
+    </ThemeProvider>
   );
 }
-
-export default (App);

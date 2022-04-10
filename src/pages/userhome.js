@@ -6,7 +6,7 @@ import '../App.css'
 import awsExports from '../aws-exports';
 import { Form } from 'react-bootstrap';
 
-import UserProfile from '../components/forms/Userprofile'
+import UserProfile from '../components-old/forms/Userprofile'
 
 Amplify.configure(awsExports);
 

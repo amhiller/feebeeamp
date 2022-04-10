@@ -6,12 +6,14 @@ import '../App.css'
 
 import awsExports from '../aws-exports';
 
-import Sidebar from '../components/navigation/usersidenav';
+import Sidebar from '../components-old/navigation/usersidenav';
 
 import { Grid } from "@mui/material"
 import { Box } from "@mui/material"
 
 import { Container } from "@mui/material"
+
+import UserProfile from '../components-old/forms/Userprofile'
 
 
 Amplify.configure(awsExports);
@@ -28,13 +30,16 @@ function Userhomev1({ user }) {
               <Grid item xs={8}>
                   <div className="test">
                       <Container>
-                        <h1 style={{ padding: '50px' }}>Hello {user.username}</h1>
+                        <h1 style={{ padding: '50px' }}>{user.username}</h1>
                       </Container>
                   </div>
+                  
               </Grid>
+              
   
             </Grid>
 
+            
 
             
           </div>
