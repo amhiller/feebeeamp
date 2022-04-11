@@ -1,7 +1,10 @@
 // Amplify
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import Amplify, { API } from 'aws-amplify';
+import { Auth } from 'aws-amplify';
 import awsExports from '../../aws-exports';
+
+import { Redirect } from 'react-router-dom'
 
 // Material Dashboard 2 React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
@@ -24,10 +27,20 @@ import MDBox from "components/MDBox";
 // import Header from "layouts/profile/components/Header";
 import ProfileInfoCard from "examples/Cards/InfoCards/ProfileInfoCard";
 
+import protectedRoute from '../../context/protected'
+
+import React, { useEffect, useState } from 'react';
 Amplify.configure(awsExports);
 
+
+const initialAuthForm = { isAuthenticated: false};
+
 function Overview() {
-  return (
+
+  const [ authData, setAuthData ] = useState(initialAuthForm);
+
+    return(
+      
     <DashboardLayout>
       <DashboardNavbar />
       <MDBox mb={2} />
@@ -57,7 +70,7 @@ function Overview() {
         </Grid>
       </MDBox>
     </DashboardLayout>
-  );
+  )
 }
 
-export default Overview;
+export default protectedRoute(Overview);

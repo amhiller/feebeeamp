@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // react-router-dom components
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -41,12 +41,15 @@ function Basic() {
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
+  let navigate = useNavigate();
   async function signIn() {
+
     try {
       setFormData(initialFormState)
       const user = await Auth.signIn(formData.email, formData.password)
       console.log("success")
       console.log(user)
+      navigate('/profile')
     } catch (err) {
       console.log(err)
     }
