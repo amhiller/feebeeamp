@@ -1,5 +1,7 @@
+import React, {useState} from 'react';
+
 // react-router-dom components
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -16,8 +18,28 @@ import CoverLayout from "layouts/authentication/components/CoverLayout";
 
 // Images
 import bgImage from "assets/images/pro-onboarding-v2.jpg";
+import { Auth } from 'aws-amplify';
+
+const initialFormState = {email: '', password: '' }
+
+
+
 
 function Cover() {
+  const [ formData, setFormData ] = useState(initialFormState)
+
+  let navigate = useNavigate();
+
+  async function signUp() {
+    try {
+      const user = await Auth.signUp(formData.email, formData.password)
+      console.log("success")
+      console.log(user)
+      navigate('/authentication/confirm-signup')
+    } catch (err) {
+        console.log(err)
+      }
+    }
   return (
     <CoverLayout image={bgImage}>
       <Card>
@@ -42,10 +64,18 @@ function Cover() {
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
             <MDBox mb={2}>
-              <MDInput type="email" label="Email" fullWidth />
+              <MDInput 
+                onChange={e => setFormData({...formData, 'email': e.target.value})}
+                type="email" 
+                label="Email" 
+                fullWidth />
             </MDBox>
             <MDBox mb={2}>
-              <MDInput type="password" label="Password" fullWidth />
+              <MDInput 
+                onChange={e => setFormData({...formData, 'password': e.target.value})}
+                type="password" 
+                label="Password" 
+                fullWidth />
             </MDBox>
             <MDBox display="flex" alignItems="center" ml={-1}>
               <Checkbox />
@@ -69,8 +99,13 @@ function Cover() {
               </MDTypography>
             </MDBox>
             <MDBox mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth>
-                sign in
+              <MDButton 
+                variant="gradient" 
+                color="info" 
+                fullWidth
+                onClick={() => signUp(formData)}
+                >
+                sign up
               </MDButton>
             </MDBox>
             <MDBox mt={3} mb={1} textAlign="center">

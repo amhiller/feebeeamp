@@ -29,6 +29,7 @@ import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 import SignOut from "layouts/authentication/sign-out";
 import Profile from "layouts/profile";
+import ConfirmEmail from "layouts/authentication/confirm-email"
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -65,6 +66,14 @@ const routes = [
     icon: <Icon fontSize="small">person</Icon>,
     route: "/profile",
     component: <Profile />,
+  },
+  {
+    type: "collapse",
+    name: "confirm email",
+    key: "confirm-email",
+    icon: <Icon fontSize="small">person</Icon>,
+    route: "/authentication/confirm-email",
+    component: <ConfirmEmail /> 
   }
 ];
 
