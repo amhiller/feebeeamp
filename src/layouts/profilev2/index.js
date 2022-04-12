@@ -29,7 +29,9 @@ import ProfileInfoCard from "examples/Cards/InfoCards/ProfileInfoCard";
 
 import protectedRoute from '../../context/protected'
 
+import BillingInformation from 'layouts/billing/components/BillingInformation'
 
+import ProfileInformation from 'layouts/profilev2/components/ProfileInformation';
 import { getProfile, listProfiles } from '../../graphql/queries';
 import React, { useEffect, useState } from 'react';
 Amplify.configure(awsExports);
@@ -64,32 +66,7 @@ function Overview() {
       
     <DashboardLayout>
       <DashboardNavbar />
-      <MDBox mb={2} />
-      <MDBox mt={5} mb={3}>
-        <Grid container spacing={1}>
-          <Grid item xs={12} md={6} xl={4} sx={{ display: "flex" }}>
-            <ProfileInfoCard
-              title="profile information"
-              description="Test Description"
-              info={{
-                fullName: "Austin Hiller",
-                mobile: "631-241-5763",
-                email: "amhiller96@gmail.com",
-                location: "USA",
-              }}
-              social={[
-                {
-                  link: "https://facebook.com",
-                  icon: <FacebookIcon />,
-                  color: "facebook",
-                },
-              ]}
-              action={{ route: "", tooltip: "Edit Profile" }}
-              shadow={false}
-            />
-          </Grid>
-        </Grid>
-      </MDBox>
+      <ProfileInformation />
     </DashboardLayout>
   )
 }

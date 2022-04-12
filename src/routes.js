@@ -31,6 +31,7 @@ import SignOut from "layouts/authentication/sign-out";
 import Profile from "layouts/profile";
 import ConfirmEmail from "layouts/authentication/confirm-email"
 import Home from "layouts/home"
+import Profilev2 from "layouts/profilev2";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -83,6 +84,14 @@ const routes = [
     icon: <Icon fontSize="small">home</Icon>,
     route: "/",
     component: <Home />
+  },
+  {
+    type: "collapse",
+    name: "profilev2",
+    key: "profilev2",
+    icon: <Icon fontSize="small">person</Icon>,
+    route: "/profilev2",
+    component: <Profilev2 />
   }
 ];
 
