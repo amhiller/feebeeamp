@@ -42,6 +42,7 @@ export declare class Profile {
   readonly lastName?: string | null;
   readonly companyName?: string | null;
   readonly bio?: string | null;
+  readonly verified?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Profile, ProfileMetaData>);

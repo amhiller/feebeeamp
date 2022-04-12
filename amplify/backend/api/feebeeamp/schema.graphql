@@ -21,4 +21,5 @@ type Profile @model @auth(rules: [ { allow: owner }]) {
   lastName: String
   companyName: String
   bio: String
+  verified: String
 }
