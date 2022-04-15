@@ -21,10 +21,11 @@
 */
 
 // Material Dashboard 2 React layouts
-// import Dashboard from "layouts/dashboard";
+ import Dashboard from "layouts/dashboard";
 // import Tables from "layouts/tables";
 // import Billing from "layouts/billing";
 // import Notifications from "layouts/notifications";
+import Projects from "layouts/projects";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 import SignOut from "layouts/authentication/sign-out";
@@ -38,6 +39,24 @@ import EditProfile from "layouts/editprofile";
 import Icon from "@mui/material/Icon";
 
 const routes = [
+  {
+    type: "collapse",
+    name: "dashboard",
+    key: "dashboard",
+    icon: <Icon fontSize="small">dashboard</Icon>,
+    route: "/dashboard",
+    component: <Dashboard />,
+    visible: true
+  },
+  {
+    type: "collapse",
+    name: "projects",
+    key: "projects",
+    icon: <Icon fontsize="small">building</Icon>,
+    route: "projects",
+    component: <Projects />,
+    visible: true
+  },
   {
     type: "collapse",
     name: "Sign In",
@@ -90,7 +109,7 @@ const routes = [
     icon: <Icon fontSize="small">home</Icon>,
     route: "/",
     component: <Home />,
-    visible: true
+    visible: false
   },
   {
     type: "collapse",
@@ -108,7 +127,7 @@ const routes = [
     icon: <Icon fontSize="small">person</Icon>,
     route: "/edit-profile",
     component: <EditProfile />,
-    visible: false
+    visible: false,
   }
 ];
 
