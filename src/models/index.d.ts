@@ -38,6 +38,7 @@ export declare class Project {
 
 export declare class Profile {
   readonly id: string;
+  readonly owner_id?: string | null;
   readonly firstName?: string | null;
   readonly lastName?: string | null;
   readonly companyName?: string | null;

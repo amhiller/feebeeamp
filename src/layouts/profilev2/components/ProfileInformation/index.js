@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 // react-router
 import { Link } from "react-router-dom";
  
@@ -11,24 +13,102 @@ import Tooltip from "@mui/material/Tooltip";
 import Icon from "@mui/material/Icon";
 import Button from "@mui/material/Button"
 
+import { listProfiles } from 'graphql/queries';
+
+import { API } from 'aws-amplify';
+import { useEffect } from "react";
+
+
+const initialProfileState = { firstName: '', lastName: '', companyName: '', bio: '', owner_id: ''}
+
 function ProfileInformaton() {
+
+  const [ profileData, setProfileData ] = useState(initialProfileState)
+
+  useEffect(() => {
+    FetchProfiles();
+  }, []);
+
+  async function FetchProfiles() {
+    try {
+      const profileDatav1 = await API.graphql({query: listProfiles})
+      console.log("logging", profileDatav1.data.listProfiles.items[0])
+      setProfileData(profileDatav1.data.listProfiles.items[0])
+      console.log(profileData)
+    } catch (err) {
+      console.log(err)
+    }
+    
+  }
+
   return (
     <Card >
       <MDBox pt={3} px={2}>
         <MDTypography variant="h6" fontWeight="medium">
           Profile Information
         </MDTypography>
-        <MDTypography component={Link} to="/" variant="body2" color="secondary">
+        <MDTypography component={Link} to="/edit-profile" variant="body2" color="secondary">
           <Tooltip title="Edit Profile" placement="top">
             <Icon>edit</Icon>
           </Tooltip>
         </MDTypography>
       </MDBox>
-      <MDBox pt={1} pb={2} px={2}>
-        <MDBox component="ul" display="flex" flexDirection="column" p={0} m={0}>
-          test
-        </MDBox>
+      <MDBox display="flex" pt={1} pb={2} px={2}>
+  
+        <MDTypography variant="h6" fontWeight="bold">
+          FirstName:&nbsp;
+        </MDTypography>
+        <MDTypography variant="h6" fontWeight="regular">
+          &nbsp;{profileData.firstName}
+        </MDTypography>
+          
+
       </MDBox>
+      <MDBox display="flex" pt={1} pb={2} px={2}>
+  
+        <MDTypography variant="h6" fontWeight="bold">
+          lastName:&nbsp;
+        </MDTypography>
+        <MDTypography variant="h6" fontWeight="regular">
+          &nbsp;{profileData.lastName}
+        </MDTypography>
+        
+
+      </MDBox>
+
+      <MDBox display="flex" pt={1} pb={2} px={2}>
+  
+        <MDTypography variant="h6" fontWeight="bold">
+          Company Name:&nbsp;
+        </MDTypography>
+        <MDTypography variant="h6" fontWeight="regular">
+          &nbsp;{profileData.companyName}
+        </MDTypography>
+        
+
+      </MDBox>
+
+            <MDBox display="flex" pt={1} pb={2} px={2}>
+  
+        <MDTypography variant="h6" fontWeight="bold">
+          bio:&nbsp;
+        </MDTypography>
+        <MDTypography variant="h6" fontWeight="regular">
+          &nbsp;{profileData.bio}
+        </MDTypography>
+        
+
+      </MDBox>
+      <MDBox display="flex" pt={1} pb={2} px={2}>
+  
+        <MDTypography variant="h6" fontWeight="bold">
+          Verified:&nbsp;
+        </MDTypography>
+        <MDTypography variant="h6" fontWeight="regular">
+          &nbsp;Nope
+        </MDTypography>
+      </MDBox>
+
     </Card>
   );
 }

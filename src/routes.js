@@ -32,6 +32,7 @@ import Profile from "layouts/profile";
 import ConfirmEmail from "layouts/authentication/confirm-email"
 import Home from "layouts/home"
 import Profilev2 from "layouts/profilev2";
+import EditProfile from "layouts/editprofile";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -44,6 +45,7 @@ const routes = [
     icon: <Icon fontSize="small">login</Icon>,
     route: "/authentication/sign-in",
     component: <SignIn />,
+    visible: false
   },
   {
     type: "collapse",
@@ -51,7 +53,8 @@ const routes = [
     key: "sign-up",
     icon: <Icon fontSize="small">assignment</Icon>,
     route: "/authentication/sign-up",
-    component: <SignUp />
+    component: <SignUp />,
+    visible: false
   },
   {
     type: "collapse",
@@ -59,7 +62,8 @@ const routes = [
     key: "sign-out",
     icon: <Icon fontSize="small">logout</Icon>,
     route: "/authentication/sign-out",
-    component: <SignOut />
+    component: <SignOut />,
+    visible: true
   },
   {
     type: "collapse",
@@ -68,6 +72,7 @@ const routes = [
     icon: <Icon fontSize="small">person</Icon>,
     route: "/profile",
     component: <Profile />,
+    visible: false
   },
   {
     type: "collapse",
@@ -75,7 +80,8 @@ const routes = [
     key: "confirm-email",
     icon: <Icon fontSize="small">fingerprint</Icon>,
     route: "/authentication/confirm-email",
-    component: <ConfirmEmail /> 
+    component: <ConfirmEmail />,
+    visible: false
   },
   {
     type: "collapse",
@@ -83,7 +89,8 @@ const routes = [
     key: "home",
     icon: <Icon fontSize="small">home</Icon>,
     route: "/",
-    component: <Home />
+    component: <Home />,
+    visible: true
   },
   {
     type: "collapse",
@@ -91,7 +98,17 @@ const routes = [
     key: "profilev2",
     icon: <Icon fontSize="small">person</Icon>,
     route: "/profilev2",
-    component: <Profilev2 />
+    component: <Profilev2 />,
+    visible: true
+  },
+  {
+    type: "collapse",
+    name: "EditProfile",
+    key: "edit-profile",
+    icon: <Icon fontSize="small">person</Icon>,
+    route: "/edit-profile",
+    component: <EditProfile />,
+    visible: false
   }
 ];
 

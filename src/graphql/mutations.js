@@ -113,6 +113,7 @@ export const createProfile = /* GraphQL */ `
   ) {
     createProfile(input: $input, condition: $condition) {
       id
+      owner_id
       firstName
       lastName
       companyName
@@ -134,6 +135,7 @@ export const updateProfile = /* GraphQL */ `
   ) {
     updateProfile(input: $input, condition: $condition) {
       id
+      owner_id
       firstName
       lastName
       companyName
@@ -155,6 +157,7 @@ export const deleteProfile = /* GraphQL */ `
   ) {
     deleteProfile(input: $input, condition: $condition) {
       id
+      owner_id
       firstName
       lastName
       companyName

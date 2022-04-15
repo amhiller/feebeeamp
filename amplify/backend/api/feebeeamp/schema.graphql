@@ -17,6 +17,7 @@ type Project @model @auth(rules: [ { allow: owner } ]) {
 
 type Profile @model @auth(rules: [ { allow: owner }]) {
   id: ID!
+  owner_id: String
   firstName: String
   lastName: String
   companyName: String

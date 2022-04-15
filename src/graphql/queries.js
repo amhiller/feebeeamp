@@ -136,6 +136,7 @@ export const getProfile = /* GraphQL */ `
   query GetProfile($id: ID!) {
     getProfile(id: $id) {
       id
+      owner_id
       firstName
       lastName
       companyName
@@ -159,6 +160,7 @@ export const listProfiles = /* GraphQL */ `
     listProfiles(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        owner_id
         firstName
         lastName
         companyName
@@ -191,6 +193,7 @@ export const syncProfiles = /* GraphQL */ `
     ) {
       items {
         id
+        owner_id
         firstName
         lastName
         companyName

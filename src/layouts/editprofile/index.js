@@ -29,43 +29,21 @@ import ProfileInfoCard from "examples/Cards/InfoCards/ProfileInfoCard";
 
 import protectedRoute from '../../context/protected'
 
-import BillingInformation from 'layouts/billing/components/BillingInformation'
 
-import ProfileInformation from 'layouts/profilev2/components/ProfileInformation';
 import { getProfile, listProfiles } from '../../graphql/queries';
 import React, { useEffect, useState } from 'react';
+
+import EditProfileInformationCard from './components/EditProfileInfornmationCard'
+
 Amplify.configure(awsExports);
 
 
-const initialAuthForm = { isAuthenticated: false};
 
 function Overview() {
-
-  const [ authData, setAuthData ] = useState(initialAuthForm);
-  const [ profiles, setProfiles ] = useState([])
-    useEffect(() => {
-      fetchProfiles();
-    }, []);
-
-    async function fetchProfile() {
-      const profileData = await API.graphql({query: getProfile})
-    }
-
-    async function fetchProfiles() {
-      try {
-        const profileData = await API.graphql({query: listProfiles})
-        setProfiles(profileData.data.listProfiles.item)
-        console.log(profileData)
-        console.log(profiles)
-      } catch (err) {
-        console.log(err)
-      }
-
-    }
     return(
     <DashboardLayout>
       <DashboardNavbar />
-      <ProfileInformation />
+      <EditProfileInformationCard />
     </DashboardLayout>
   )
 }

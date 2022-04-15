@@ -92,6 +92,7 @@ export const onCreateProfile = /* GraphQL */ `
   subscription OnCreateProfile($owner: String) {
     onCreateProfile(owner: $owner) {
       id
+      owner_id
       firstName
       lastName
       companyName
@@ -110,6 +111,7 @@ export const onUpdateProfile = /* GraphQL */ `
   subscription OnUpdateProfile($owner: String) {
     onUpdateProfile(owner: $owner) {
       id
+      owner_id
       firstName
       lastName
       companyName
@@ -128,6 +130,7 @@ export const onDeleteProfile = /* GraphQL */ `
   subscription OnDeleteProfile($owner: String) {
     onDeleteProfile(owner: $owner) {
       id
+      owner_id
       firstName
       lastName
       companyName
