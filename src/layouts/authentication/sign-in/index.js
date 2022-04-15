@@ -49,7 +49,7 @@ function Basic() {
       const user = await Auth.signIn(formData.email, formData.password)
       console.log("success")
       console.log(user)
-      navigate('/profile')
+      navigate('/profilev2')
     } catch (err) {
       console.log(err)
     }
