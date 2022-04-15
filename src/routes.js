@@ -34,6 +34,7 @@ import ConfirmEmail from "layouts/authentication/confirm-email"
 import Home from "layouts/home"
 import Profilev2 from "layouts/profilev2";
 import EditProfile from "layouts/editprofile";
+import CreateProject from "layouts/projects/createproject"
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -129,6 +130,15 @@ const routes = [
     route: "/authentication/sign-out",
     component: <SignOut />,
     visible: true
+  },
+  {
+    type: "collapse",
+    name: "Create Project",
+    key: "create-project",
+    icon: <Icon fontSize="small">logout</Icon>,
+    route: "/create-project",
+    component: <CreateProject />,
+    visible: false
   }
 ];
 
