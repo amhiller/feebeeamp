@@ -24,7 +24,7 @@ const initialProfileState = { firstName: '', lastName: '', companyName: '', bio:
 function ProfileInformaton() {
 
   const [ profileData, setProfileData ] = useState(initialProfileState)
-
+  const first = false;
   useEffect(() => {
     FetchProfiles();
   }, []);
@@ -33,8 +33,14 @@ function ProfileInformaton() {
     try {
       const profileDatav1 = await API.graphql({query: listProfiles})
       console.log("logging", profileDatav1.data.listProfiles.items[0])
-      setProfileData(profileDatav1.data.listProfiles.items[0])
-      console.log(profileData)
+      if(!profileDatav1.data.listProfiles.items.length) {
+        console.log("not first")
+        first = true;
+      } 
+      else {
+        setProfileData(profileDatav1.data.listProfiles.items[0])
+        console.log(profileData)
+      }
     } catch (err) {
       console.log(err)
     }

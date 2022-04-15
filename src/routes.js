@@ -52,7 +52,7 @@ const routes = [
     type: "collapse",
     name: "projects",
     key: "projects",
-    icon: <Icon fontsize="small">building</Icon>,
+    icon: <Icon fontSize="small">building</Icon>,
     route: "projects",
     component: <Projects />,
     visible: true
@@ -75,15 +75,7 @@ const routes = [
     component: <SignUp />,
     visible: false
   },
-  {
-    type: "collapse",
-    name: "Sign Out",
-    key: "sign-out",
-    icon: <Icon fontSize="small">logout</Icon>,
-    route: "/authentication/sign-out",
-    component: <SignOut />,
-    visible: true
-  },
+
   {
     type: "collapse",
     name: "Profile",
@@ -128,6 +120,15 @@ const routes = [
     route: "/edit-profile",
     component: <EditProfile />,
     visible: false,
+  },
+  {
+    type: "collapse",
+    name: "Sign Out",
+    key: "sign-out",
+    icon: <Icon fontSize="small">logout</Icon>,
+    route: "/authentication/sign-out",
+    component: <SignOut />,
+    visible: true
   }
 ];
 
