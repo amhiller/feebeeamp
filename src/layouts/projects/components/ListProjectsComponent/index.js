@@ -49,6 +49,7 @@ function ListProjectsComponent() {
           {
             projects.map((project, index) => (
               <Project
+                key={project.id}
                 id={project.id}
                 _version={project._version}
                 name={project.name}

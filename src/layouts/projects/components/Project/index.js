@@ -18,15 +18,8 @@ import MDButton from "components/MDButton";
 
 const initialProjectState = { name: '', description: '' };
 
-function Project({name, description, id, _version}) {
+function Project(project) {
 
-
-  const project = {
-    name: {name},
-    description: {description},
-    id: {id},
-    _version: {_version}
-  }
   async function deleteProject( { id, _version }) {
     console.log({id, _version})
     //console.log(_version._version)
@@ -58,7 +51,7 @@ function Project({name, description, id, _version}) {
           mb={2}
         >
           <MDTypography variant="button" fontWeight="medium" textTransform="capitalize">
-            {name}
+            {project.name}
           </MDTypography>
 
           <MDBox display="flex" alignItems="center" mt={{ xs: 2, sm: 0 }} ml={{ xs: -1.5, sm: 0 }}>
@@ -76,20 +69,20 @@ function Project({name, description, id, _version}) {
           <MDTypography variant="caption" color="text">
             Name:&nbsp;&nbsp;&nbsp;
             <MDTypography variant="caption" fontWeight="medium">
-              {name}
+              {project.name}
             </MDTypography>
           </MDTypography>
         </MDBox>
         <MDTypography variant="caption" color="text">
           description:&nbsp;&nbsp;&nbsp;
           <MDTypography variant="caption" fontWeight="medium">
-            {description}
+            {project.description}
           </MDTypography>
         </MDTypography>
         <MDTypography variant="caption" color="text">
           id:&nbsp;&nbsp;&nbsp;
           <MDTypography variant="caption" fontWeight="medium">
-            {id}
+            {project.id}
           </MDTypography>
         </MDTypography>
       </MDBox>
