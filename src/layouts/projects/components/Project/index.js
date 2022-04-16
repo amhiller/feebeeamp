@@ -1,3 +1,10 @@
+import React from 'react'
+
+import { API } from "aws-amplify";
+
+import { deleteProject as DeleteProjectMutation} from "graphql/mutations"
+
+
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
@@ -9,23 +16,37 @@ import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDButton from "components/MDButton";
 
-// Material Dashboard 2 React context
-import { useMaterialUIController } from "context";
+const initialProjectState = { name: '', description: '' };
 
-function Bill({ name, company, email, vat, noGutter }) {
-  const [controller] = useMaterialUIController();
-  const { darkMode } = controller;
+function Project({name, description, id, _version}) {
 
-  return (
+
+  const project = {
+    name: {name},
+    description: {description},
+    id: {id},
+    _version: {_version}
+  }
+  async function deleteProject( { id, _version }) {
+    console.log({id, _version})
+    //console.log(_version._version)
+    try {
+      await API.graphql({ query: DeleteProjectMutation, variables: {input:{id, _version} }})
+      console.log("test")
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  return(
     <MDBox
       component="li"
       display="flex"
       justifyContent="space-between"
       alignItems="flex-start"
-      bgColor={darkMode ? "transparent" : "grey-100"}
+      bgColor="grey-100"
       borderRadius="lg"
       p={3}
-      mb={noGutter ? 0 : 1}
       mt={2}
     >
       <MDBox width="100%" display="flex" flexDirection="column">
@@ -42,54 +63,48 @@ function Bill({ name, company, email, vat, noGutter }) {
 
           <MDBox display="flex" alignItems="center" mt={{ xs: 2, sm: 0 }} ml={{ xs: -1.5, sm: 0 }}>
             <MDBox mr={1}>
-              <MDButton variant="text" color="error">
+              <MDButton onClick={() => deleteProject(project)}variant="text" color="error">
                 <Icon>delete</Icon>&nbsp;delete
               </MDButton>
             </MDBox>
-            <MDButton variant="text" color={darkMode ? "white" : "dark"}>
+            <MDButton variant="text" color="dark">
               <Icon>edit</Icon>&nbsp;edit
             </MDButton>
           </MDBox>
         </MDBox>
         <MDBox mb={1} lineHeight={0}>
           <MDTypography variant="caption" color="text">
-            Company Name:&nbsp;&nbsp;&nbsp;
-            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
-              {company}
-            </MDTypography>
-          </MDTypography>
-        </MDBox>
-        <MDBox mb={1} lineHeight={0}>
-          <MDTypography variant="caption" color="text">
-            Email Address:&nbsp;&nbsp;&nbsp;
+            Name:&nbsp;&nbsp;&nbsp;
             <MDTypography variant="caption" fontWeight="medium">
-              {email}
+              {name}
             </MDTypography>
           </MDTypography>
         </MDBox>
         <MDTypography variant="caption" color="text">
-          VAT Number:&nbsp;&nbsp;&nbsp;
+          description:&nbsp;&nbsp;&nbsp;
           <MDTypography variant="caption" fontWeight="medium">
-            {vat}
+            {description}
+          </MDTypography>
+        </MDTypography>
+        <MDTypography variant="caption" color="text">
+          id:&nbsp;&nbsp;&nbsp;
+          <MDTypography variant="caption" fontWeight="medium">
+            {id}
           </MDTypography>
         </MDTypography>
       </MDBox>
     </MDBox>
-  );
+  )
 }
 
-// Setting default values for the props of Bill
-Bill.defaultProps = {
+Project.defaultProps = {
   noGutter: false,
 };
 
 // Typechecking props for the Bill
-Bill.propTypes = {
+Project.propTypes = {
   name: PropTypes.string.isRequired,
-  company: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  vat: PropTypes.string.isRequired,
-  noGutter: PropTypes.bool,
+  description: PropTypes.string.isRequired
 };
 
-export default Bill;
+export default Project

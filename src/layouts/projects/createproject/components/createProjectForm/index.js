@@ -21,13 +21,28 @@ import { API } from "aws-amplify"
 
 import Amplify from "aws-amplify"
 
+import { createProject as CreateProjectMutation, deleteProject as DeleteProjectMutation } from 'graphql/mutations';
+
+
 Amplify.configure(awsExports)
 
-
+const initialProjectState = { name: '', description: '' };
 
 function ProjectInformation() {
 
+  const [ projectData, setProjectData ] = useState(initialProjectState);
 
+
+  async function CreateProject() {
+    console.log("Creating Project")
+    try {
+      console.log(projectData)
+      await API.graphql({ query: CreateProjectMutation, variables: {input: projectData }})
+      setProjectData(initialProjectState)
+    } catch (err) {
+      console.log(err)
+    }
+  }
   return (
     <Card >
       <MDBox pt={3} px={2}>
@@ -44,7 +59,7 @@ function ProjectInformation() {
           </MDTypography>
           <MDInput
             //onChange={e => test(e)}
-            //onChange={e => setSubmitData({...submitData, 'firstName': e.target.value})}
+            onChange={e => setProjectData({...projectData, 'name': e.target.value})}
             type="string"
             label="project Name"
           />
@@ -55,11 +70,19 @@ function ProjectInformation() {
             </MDTypography>
             <MDInput
             //onChange={e => test(e)}
-            //onChange={e => setSubmitData({...submitData, 'firstName': e.target.value})}
+            onChange={e => setProjectData({...projectData, 'description': e.target.value})}
             type="string"
             label="Project Description"
           />
           </MDBox>
+
+          <MDButton 
+          variant="button"
+          color="info"
+          onClick={() => CreateProject()}
+          >
+          Create Project
+        </MDButton>
  
 
         
