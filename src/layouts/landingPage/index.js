@@ -1,6 +1,18 @@
 import PageLayout from "examples/LayoutContainers/PageLayout";
 
-const LandingPage = () => (
+import { Link, useNavigate } from "react-router-dom";
+
+function LandingPagev1() {
+    return (
+        <PageLayout >
+        <AboveTheFold />
+        <Explore />
+        <BecomePro />
+        <Footer />
+        </PageLayout>
+    )
+}
+export const LandingPage = () => (
     <div className="landing-page">
         <PageLayout >
         <AboveTheFold />
@@ -12,6 +24,7 @@ const LandingPage = () => (
 );
 
 const AboveTheFold = () => (
+    
     <div>
         <div className='lp-header'>
             <div className="lp-header-logo">
@@ -28,7 +41,7 @@ const AboveTheFold = () => (
             <h2>Clearer</h2>
             <div>We help contractors organize their projects to <br /> simplify the home remodeling process.</div>
             <div className="hero-btn-container">
-                <a className="btn-pill primary">Get Started</a>
+                <a className="btn-pill primary" >Get Started</a>
             </div>
             <div className="hero-btn-container">
                 <a className="btn-pill secondary">Join As Pro</a>
@@ -82,4 +95,4 @@ const Footer = () => (
     </div>
 )
 
-export default LandingPage;
+export default LandingPagev1;
