@@ -35,6 +35,7 @@ import Home from "layouts/home"
 import Profilev2 from "layouts/profilev2";
 import EditProfile from "layouts/editprofile";
 import CreateProject from "layouts/projects/createproject"
+import Project from "layouts/projects/project";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -138,6 +139,15 @@ const routes = [
     icon: <Icon fontSize="small">logout</Icon>,
     route: "/create-project",
     component: <CreateProject />,
+    visible: false
+  },
+  {
+    type: "collapse",
+    name: "Project",
+    key: "project",
+    icon: <Icon fontSize="small">logout</Icon>,
+    route: "/projects/:projectId",
+    component: <Project />,
     visible: false
   }
 ];

@@ -54,6 +54,7 @@ function ListProjectsComponent() {
                 _version={project._version}
                 name={project.name}
                 description={project.description}
+                owner={project.owner}
               />
             ))
           }

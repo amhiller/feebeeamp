@@ -76,13 +76,15 @@ function ProjectInformation() {
           />
           </MDBox>
 
-          <MDButton 
-          variant="button"
-          color="info"
-          onClick={() => CreateProject()}
-          >
-          Create Project
-        </MDButton>
+            <MDButton 
+            variant="button"
+            color="info"
+            onClick={() => CreateProject()}
+            >
+            Create Project
+          </MDButton>
+
+
  
 
         

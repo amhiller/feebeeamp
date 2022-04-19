@@ -4,6 +4,7 @@ import { API } from "aws-amplify";
 
 import { deleteProject as DeleteProjectMutation} from "graphql/mutations"
 
+import { Link } from "react-router-dom";
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
@@ -60,9 +61,12 @@ function Project(project) {
                 <Icon>delete</Icon>&nbsp;delete
               </MDButton>
             </MDBox>
-            <MDButton variant="text" color="dark">
-              <Icon>edit</Icon>&nbsp;edit
-            </MDButton>
+            <Link to={project.id} state={project}>
+              <MDButton variant="text" color="dark">
+                <Icon>edit</Icon>&nbsp;View
+              </MDButton>
+            </Link>
+
           </MDBox>
         </MDBox>
         <MDBox mb={1} lineHeight={0}>
@@ -83,6 +87,12 @@ function Project(project) {
           id:&nbsp;&nbsp;&nbsp;
           <MDTypography variant="caption" fontWeight="medium">
             {project.id}
+          </MDTypography>
+        </MDTypography>
+        <MDTypography variant="caption" color="text">
+          owner:&nbsp;&nbsp;&nbsp;
+          <MDTypography variant="caption" fontWeight="medium">
+            {project.owner}
           </MDTypography>
         </MDTypography>
       </MDBox>
