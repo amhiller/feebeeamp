@@ -1,9 +1,13 @@
+import PageLayout from "examples/LayoutContainers/PageLayout";
+
 const LandingPage = () => (
     <div className="landing-page">
+        <PageLayout >
         <AboveTheFold />
         <Explore />
         <BecomePro />
         <Footer />
+        </PageLayout>
     </div>
 );
 
