@@ -112,3 +112,136 @@
     transform: rotate(360deg);
   }
 }
+
+.landing-page > * {
+  color: #041E77;
+  background: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+}
+
+.btn-pill {
+  background: #ffffff;
+  border-radius: 25px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #041E77;
+  padding: 12px 40px;
+}
+
+.primary {
+  color: white;
+  background: #1EC1CB;
+}
+
+.secondary {
+  color: white;
+  background: #041E77;
+}
+
+.lp-header {
+  padding: 50px 80px;
+}
+
+.lp-header-logo {
+  font-size: 25px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  line-height: 30px;
+  margin: 0px 8px;
+}
+
+.hero {
+  background: white;
+  padding: 0px 100px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.hero h2 {
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 50px;
+}
+
+.hero-btn-container {
+  padding: 18px 0px;
+}
+
+.explore {
+  background: #E6F6FF;
+  padding: 88px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.explore h1 {
+  font-size: 55px;
+}
+
+.explore h2 {
+  font-size: 43px;
+}
+
+.become-pro {
+  padding: 146px 60px;
+  background: #18285F;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 10px;
+  font-size: 18px;
+}
+
+.become-pro > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.become-pro > div > * {
+  margin-bottom: 30px
+}
+
+.become-pro h1 {
+  font-size: 48px;
+  line-height: 58px;
+}
+
+.footer {
+  background: #E6F6FF;
+  padding: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 400;
+  font-size: 14px;
+  color: #041E77;
+  line-height: 35px;
+  letter-spacing: 0.05em;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer h1 {
+  font-size: 42px;
+}
+
+.footer a {
+  color: #1EC1CB;
+}

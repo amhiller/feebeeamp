@@ -32,6 +32,7 @@ import SignOut from "layouts/authentication/sign-out";
 import Profile from "layouts/profile";
 import ConfirmEmail from "layouts/authentication/confirm-email"
 import Home from "layouts/home"
+import LandingPage from "layouts/landingPage"
 import Profilev2 from "layouts/profilev2";
 import EditProfile from "layouts/editprofile";
 import CreateProject from "layouts/projects/createproject"
@@ -102,7 +103,7 @@ const routes = [
     key: "home",
     icon: <Icon fontSize="small">home</Icon>,
     route: "/",
-    component: <Home />,
+    component: <LandingPage />,
     visible: false
   },
   {
