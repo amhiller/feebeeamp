@@ -172,3 +172,66 @@ export const deleteProfile = /* GraphQL */ `
     }
   }
 `;
+export const createClient = /* GraphQL */ `
+  mutation CreateClient(
+    $input: CreateClientInput!
+    $condition: ModelClientConditionInput
+  ) {
+    createClient(input: $input, condition: $condition) {
+      id
+      firstName
+      lastName
+      phoneNumber
+      address
+      email
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+    }
+  }
+`;
+export const updateClient = /* GraphQL */ `
+  mutation UpdateClient(
+    $input: UpdateClientInput!
+    $condition: ModelClientConditionInput
+  ) {
+    updateClient(input: $input, condition: $condition) {
+      id
+      firstName
+      lastName
+      phoneNumber
+      address
+      email
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+    }
+  }
+`;
+export const deleteClient = /* GraphQL */ `
+  mutation DeleteClient(
+    $input: DeleteClientInput!
+    $condition: ModelClientConditionInput
+  ) {
+    deleteClient(input: $input, condition: $condition) {
+      id
+      firstName
+      lastName
+      phoneNumber
+      address
+      email
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+    }
+  }
+`;

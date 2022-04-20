@@ -20,7 +20,7 @@
     }
   },
   "Resources": {
-    "LambdaLayerVersiona763a23c": {
+    "LambdaLayerVersion4a44ef29": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
         "CompatibleRuntimes": [
@@ -30,9 +30,9 @@
           "S3Bucket": {
             "Ref": "deploymentBucketName"
           },
-          "S3Key": "amplify-builds/feebeeamplayer7dc86e60-LambdaLayerVersiona763a23c-build.zip"
+          "S3Key": "amplify-builds/feebeeamplayer7dc86e60-LambdaLayerVersion4a44ef29-build.zip"
         },
-        "Description": "Updated layer version 2022-04-12T19:43:17.318Z",
+        "Description": "Updated layer version 2022-04-19T22:43:42.298Z",
         "LayerName": {
           "Fn::Sub": [
             "feebeeamplayer7dc86e60-${env}",
@@ -47,11 +47,11 @@
       "DeletionPolicy": "Delete",
       "UpdateReplacePolicy": "Retain"
     },
-    "LambdaLayerPermissionPrivatea763a23c": {
+    "LambdaLayerPermissionPrivate4a44ef29": {
       "Type": "AWS::Lambda::LayerVersionPermission",
       "Properties": {
         "Action": "lambda:GetLayerVersion",
-        "LayerVersionArn": "arn:aws:lambda:us-east-1:825614307930:layer:feebeeamplayer7dc86e60-staging:24",
+        "LayerVersionArn": "arn:aws:lambda:us-east-1:825614307930:layer:feebeeamplayer7dc86e60-staging:35",
         "Principal": {
           "Ref": "AWS::AccountId"
         }
@@ -61,7 +61,7 @@
   "Outputs": {
     "Arn": {
       "Value": {
-        "Ref": "LambdaLayerVersiona763a23c"
+        "Ref": "LambdaLayerVersion4a44ef29"
       }
     }
   }

@@ -26,11 +26,11 @@ function ProjectsComponent() {
 
   return (
     <Card id="delete-account">
-      <MDBox pt={2} px={2} display="flex" justifyContent="space-between" alignItems="center">
+      <MDBox pt={2} px={2} py={2} display="flex" justifyContent="space-between" alignItems="center">
         <MDTypography variant="h6" fontWeight="medium">
           Projects
         </MDTypography>
-        <MDButton pt={2} px={2} component={Link} to="/create-project"variant="gradient" color="dark">
+        <MDButton pt={2} px={2} py={2} component={Link} to="/create-project" variant="gradient" color="dark">
           <Icon sx={{ fontWeight: "bold" }}>add</Icon>
           &nbsp;add new Project
         </MDButton>

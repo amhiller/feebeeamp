@@ -24,3 +24,13 @@ type Profile @model @auth(rules: [ { allow: owner }]) {
   bio: String
   verified: String
 }
+
+type Client @model @auth(rules: [ { allow: owner }]) {
+  id: ID!
+  firstName: String
+  lastName: String
+  phoneNumber: String
+  address: String
+  email: String
+  
+}

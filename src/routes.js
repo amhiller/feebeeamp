@@ -37,6 +37,8 @@ import Profilev2 from "layouts/profilev2";
 import EditProfile from "layouts/editprofile";
 import CreateProject from "layouts/projects/createproject"
 import Project from "layouts/projects/project";
+import Crm from "layouts/crm";
+import AddClient from "layouts/crm/addClient"
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -158,6 +160,24 @@ const routes = [
     icon: <Icon fontSize="small">logout</Icon>,
     route: "/projects/:projectId",
     component: <Project />,
+    visible: false
+  },
+  {
+    type: "collapse",
+    name: "Crm",
+    key: "crm",
+    icon: <Icon fontSize="small">people</Icon>,
+    route: "/crm",
+    component: <Crm />,
+    visible: true
+  },
+  {
+    type: "collapse",
+    name: "Add Client",
+    key: "add-client",
+    icon: <Icon fontSize="small">people</Icon>,
+    route: "/crm/add-client",
+    component: <AddClient />,
     visible: false
   }
 ];

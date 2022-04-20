@@ -145,3 +145,57 @@ export const onDeleteProfile = /* GraphQL */ `
     }
   }
 `;
+export const onCreateClient = /* GraphQL */ `
+  subscription OnCreateClient($owner: String) {
+    onCreateClient(owner: $owner) {
+      id
+      firstName
+      lastName
+      phoneNumber
+      address
+      email
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+    }
+  }
+`;
+export const onUpdateClient = /* GraphQL */ `
+  subscription OnUpdateClient($owner: String) {
+    onUpdateClient(owner: $owner) {
+      id
+      firstName
+      lastName
+      phoneNumber
+      address
+      email
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+    }
+  }
+`;
+export const onDeleteClient = /* GraphQL */ `
+  subscription OnDeleteClient($owner: String) {
+    onDeleteClient(owner: $owner) {
+      id
+      firstName
+      lastName
+      phoneNumber
+      address
+      email
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+    }
+  }
+`;
