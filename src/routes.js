@@ -83,10 +83,10 @@ const routes = [
 
   {
     type: "collapse",
-    name: "Profile",
-    key: "profile",
+    name: "Profilev2",
+    key: "profilev2",
     icon: <Icon fontSize="small">person</Icon>,
-    route: "/profile",
+    route: "/profilev2",
     component: <Profile />,
     visible: false
   },
@@ -119,10 +119,10 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "profilev2",
-    key: "profilev2",
+    name: "profile",
+    key: "profile",
     icon: <Icon fontSize="small">person</Icon>,
-    route: "/profilev2",
+    route: "/profile",
     component: <Profilev2 />,
     visible: true
   },
