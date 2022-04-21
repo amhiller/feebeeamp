@@ -92,7 +92,7 @@ function AddClient() {
           <MDButton
             variant="button"
             color="info"
-            //onClick={() => CreateClient()}
+            onClick={() => CreateClient()}
             >
               Add Client
             </MDButton>
