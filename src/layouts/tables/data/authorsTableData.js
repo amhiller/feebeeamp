@@ -24,9 +24,10 @@ function Crm() {
 
   const [ clients, setClients ] = useState([]);
 
-  useEffect(() => {
-    fetchClients();
-  }, []);
+  //why is this being dumb
+  //useEffect(() => {
+  //  fetchClients();
+  //}, []);
 
   async function fetchClients() {
     console.log("Fetching Clients")
@@ -34,9 +35,10 @@ function Crm() {
       const clientData = await API.graphql({query: listClients});
       console.log(clientData.data.listClients.items);
       setClients(clientData.data.listClients.items.filter(item => item._deleted !== true));
-      const client1 = clientData.data.listClients.items
-      console.log(client1)
-      console.log(clients);
+      //const client1 = clientData.data.listClients.items
+      //console.log(client1)
+      //console.log("clients: ",clients);
+      console.log("test: ", clients)
     } catch(err) {
       console.log(err)
     }
@@ -66,25 +68,25 @@ function Crm() {
 
   return {
     columns: [
-      { Header: "client", accessor: "client", width: "45%", align: "left" },
-      { Header: "type", accessor: "type", align: "left" },
-      { Header: "status", accessor: "status", align: "center" },
-      { Header: "phone", accessor: "phone", align: "center" },
+      { Header: "firstName", accessor: "firstName", width: "45%", align: "left" },
+      { Header: "lastName", accessor: "lastName", align: "left" },
+      { Header: "email", accessor: "email", align: "center" },
+      { Header: "phoneNumber", accessor: "phoneNumber", align: "center" },
       { Header: "address", accessor: "address", align: "center" },
     ],
-
+    
     rows: [
       {
-        client: <Client image={team2} name="John Michael" email="john@gmail.com" />,
-        type: <Role title="client" description="home-owner" />,
-        status: "Past Client",
+        firstName: "Austin" ,
+        lastName: "Hiller",
+        email: "amhiller96@gmail.com",
         phone: "123-454-6789",
         address: "123 Feebee ln",
       },
       {
-        client: <Client image={team3} name="Alexa Liras" email="alexa@gmail.com" />,
-        type: <Role title="sub" description="plumber" />,
-        status: "working on project X",
+        firstName: "Bob",
+        lastName: "Henry",
+        email: "test@gmail.com",
         phone: "123-546-7890",
         address: "124 FeeBee ln"
       },
