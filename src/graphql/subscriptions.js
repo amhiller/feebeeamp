@@ -49,6 +49,42 @@ export const onCreateProject = /* GraphQL */ `
       id
       name
       description
+      tasks {
+        items {
+          id
+          title
+          description
+          status
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          projectTasksId
+          owner
+        }
+        nextToken
+        startedAt
+      }
+      requests {
+        items {
+          id
+          title
+          description
+          response
+          status
+          request_id
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          projectRequestsId
+          owner
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -64,6 +100,42 @@ export const onUpdateProject = /* GraphQL */ `
       id
       name
       description
+      tasks {
+        items {
+          id
+          title
+          description
+          status
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          projectTasksId
+          owner
+        }
+        nextToken
+        startedAt
+      }
+      requests {
+        items {
+          id
+          title
+          description
+          response
+          status
+          request_id
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          projectRequestsId
+          owner
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -79,6 +151,42 @@ export const onDeleteProject = /* GraphQL */ `
       id
       name
       description
+      tasks {
+        items {
+          id
+          title
+          description
+          status
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          projectTasksId
+          owner
+        }
+        nextToken
+        startedAt
+      }
+      requests {
+        items {
+          id
+          title
+          description
+          response
+          status
+          request_id
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          projectRequestsId
+          owner
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -195,6 +303,165 @@ export const onDeleteClient = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      owner
+    }
+  }
+`;
+export const onCreateCompany = /* GraphQL */ `
+  subscription OnCreateCompany {
+    onCreateCompany {
+      id
+      companyName
+      email
+      phoneNumber
+      address
+      type
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateCompany = /* GraphQL */ `
+  subscription OnUpdateCompany {
+    onUpdateCompany {
+      id
+      companyName
+      email
+      phoneNumber
+      address
+      type
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteCompany = /* GraphQL */ `
+  subscription OnDeleteCompany {
+    onDeleteCompany {
+      id
+      companyName
+      email
+      phoneNumber
+      address
+      type
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onCreateTask = /* GraphQL */ `
+  subscription OnCreateTask($owner: String) {
+    onCreateTask(owner: $owner) {
+      id
+      title
+      description
+      status
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      projectTasksId
+      owner
+    }
+  }
+`;
+export const onUpdateTask = /* GraphQL */ `
+  subscription OnUpdateTask($owner: String) {
+    onUpdateTask(owner: $owner) {
+      id
+      title
+      description
+      status
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      projectTasksId
+      owner
+    }
+  }
+`;
+export const onDeleteTask = /* GraphQL */ `
+  subscription OnDeleteTask($owner: String) {
+    onDeleteTask(owner: $owner) {
+      id
+      title
+      description
+      status
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      projectTasksId
+      owner
+    }
+  }
+`;
+export const onCreateRequest = /* GraphQL */ `
+  subscription OnCreateRequest($owner: String) {
+    onCreateRequest(owner: $owner) {
+      id
+      title
+      description
+      response
+      status
+      request_id
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      projectRequestsId
+      owner
+    }
+  }
+`;
+export const onUpdateRequest = /* GraphQL */ `
+  subscription OnUpdateRequest($owner: String) {
+    onUpdateRequest(owner: $owner) {
+      id
+      title
+      description
+      response
+      status
+      request_id
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      projectRequestsId
+      owner
+    }
+  }
+`;
+export const onDeleteRequest = /* GraphQL */ `
+  subscription OnDeleteRequest($owner: String) {
+    onDeleteRequest(owner: $owner) {
+      id
+      title
+      description
+      response
+      status
+      request_id
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      projectRequestsId
       owner
     }
   }

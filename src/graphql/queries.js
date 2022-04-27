@@ -71,6 +71,42 @@ export const getProject = /* GraphQL */ `
       id
       name
       description
+      tasks {
+        items {
+          id
+          title
+          description
+          status
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          projectTasksId
+          owner
+        }
+        nextToken
+        startedAt
+      }
+      requests {
+        items {
+          id
+          title
+          description
+          response
+          status
+          request_id
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          projectRequestsId
+          owner
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -91,6 +127,14 @@ export const listProjects = /* GraphQL */ `
         id
         name
         description
+        tasks {
+          nextToken
+          startedAt
+        }
+        requests {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -120,6 +164,14 @@ export const syncProjects = /* GraphQL */ `
         id
         name
         description
+        tasks {
+          nextToken
+          startedAt
+        }
+        requests {
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -280,6 +332,231 @@ export const syncClients = /* GraphQL */ `
         _version
         _deleted
         _lastChangedAt
+        owner
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getCompany = /* GraphQL */ `
+  query GetCompany($id: ID!) {
+    getCompany(id: $id) {
+      id
+      companyName
+      email
+      phoneNumber
+      address
+      type
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const listCompanies = /* GraphQL */ `
+  query ListCompanies(
+    $filter: ModelCompanyFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCompanies(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        companyName
+        email
+        phoneNumber
+        address
+        type
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncCompanies = /* GraphQL */ `
+  query SyncCompanies(
+    $filter: ModelCompanyFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncCompanies(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        companyName
+        email
+        phoneNumber
+        address
+        type
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getTask = /* GraphQL */ `
+  query GetTask($id: ID!) {
+    getTask(id: $id) {
+      id
+      title
+      description
+      status
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      projectTasksId
+      owner
+    }
+  }
+`;
+export const listTasks = /* GraphQL */ `
+  query ListTasks(
+    $filter: ModelTaskFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listTasks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        description
+        status
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        projectTasksId
+        owner
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncTasks = /* GraphQL */ `
+  query SyncTasks(
+    $filter: ModelTaskFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncTasks(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        title
+        description
+        status
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        projectTasksId
+        owner
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getRequest = /* GraphQL */ `
+  query GetRequest($id: ID!) {
+    getRequest(id: $id) {
+      id
+      title
+      description
+      response
+      status
+      request_id
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      projectRequestsId
+      owner
+    }
+  }
+`;
+export const listRequests = /* GraphQL */ `
+  query ListRequests(
+    $filter: ModelRequestFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listRequests(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        description
+        response
+        status
+        request_id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        projectRequestsId
+        owner
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncRequests = /* GraphQL */ `
+  query SyncRequests(
+    $filter: ModelRequestFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncRequests(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        title
+        description
+        response
+        status
+        request_id
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        projectRequestsId
         owner
       }
       nextToken

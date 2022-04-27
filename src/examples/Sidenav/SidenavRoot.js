@@ -28,7 +28,8 @@ export default styled(Drawer)(({ theme, ownerState }) => {
     transition: transitions.create("transform", {
       easing: transitions.easing.sharp,
       duration: transitions.duration.shorter,
-    }),
+    }
+    ),
 
     [breakpoints.up("xl")]: {
       boxShadow: transparentSidenav ? "none" : xxl,
@@ -70,7 +71,8 @@ export default styled(Drawer)(({ theme, ownerState }) => {
     "& .MuiDrawer-paper": {
       boxShadow: xxl,
       border: "none",
-
+      borderRadius: "10px",
+      
       ...(miniSidenav ? drawerCloseStyles() : drawerOpenStyles()),
     },
   };

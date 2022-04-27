@@ -13,6 +13,8 @@ type Project @model @auth(rules: [ { allow: owner } ]) {
   id: ID!
   name: String!
   description: String
+  tasks: [Task] @hasMany
+  requests: [Request] @hasMany
 }
 
 type Profile @model @auth(rules: [ { allow: owner }]) {
@@ -33,4 +35,29 @@ type Client @model @auth(rules: [ { allow: owner }]) {
   address: String
   email: String
   
+}
+
+type Company @model {
+  id: ID!
+  companyName: String
+  email: String
+  phoneNumber: String
+  address: String
+  type: String
+}
+
+type Task @model @auth(rules: [ { allow: owner }]){
+  id: ID!
+  title: String
+  description: String
+  status: String
+}
+
+type Request @model @auth(rules: [ { allow: owner }]){
+  id: ID!
+  title: String
+  description: String
+  response: String
+  status: String
+  request_id: ID
 }
