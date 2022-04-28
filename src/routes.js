@@ -137,15 +137,7 @@ const routes = [
     component: <EditProfile />,
     visible: false,
   },
-  {
-    type: "collapse",
-    name: "Sign Out",
-    key: "sign-out",
-    icon: <Icon fontSize="small">logout</Icon>,
-    route: "/authentication/sign-out",
-    component: <SignOut />,
-    visible: true
-  },
+
   {
     type: "collapse",
     name: "Create Project",
@@ -199,6 +191,15 @@ const routes = [
     route: "/test",
     component: <Test />,
     visible: false
+  },
+  {
+    type: "collapse",
+    name: "Sign Out",
+    key: "sign-out",
+    icon: <Icon fontSize="small">logout</Icon>,
+    route: "/authentication/sign-out",
+    component: <SignOut />,
+    visible: true
   }
 ];
 

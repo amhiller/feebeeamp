@@ -13,7 +13,7 @@ import Button from '@mui/material/Button';
 
 
 
-function Client(state) {
+function Client() {
   let params = useParams();
   const [ clientData, setClientData ] = useState([])
 
