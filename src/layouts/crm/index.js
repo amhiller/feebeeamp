@@ -20,6 +20,10 @@ import Grid from '@mui/material/Grid';
 import MDBox from 'components/MDBox';
 import MDTypography from 'components/MDTypography';
 import Card from '@mui/material/Card';
+import Icon from '@mui/material/Icon';
+import Button from '@mui/material/Button';
+
+import { Link } from 'react-router-dom';
 
 //Test data
 import authorTableData from "layouts/tables/data/authorsTableData"
@@ -72,6 +76,19 @@ function Crm() {
   //var rows2 = {rows1}
   //console.log(rows2)
   //const rows2 = getRows()
+  console.log("rows", rows)
+
+  rows.map((client, index) => {
+    console.log(client.id)
+    client['action'] = 
+    <MDTypography component="a" href="#" color="text">
+      <Link to={client.id} >
+        <Button>View</Button>
+      </Link>
+    </MDTypography>
+    console.log(index)
+  })
+
   console.log(rows)
 
   //const {rows2} = getRows()

@@ -73,6 +73,7 @@ function Crm() {
       { Header: "email", accessor: "email", align: "center" },
       { Header: "phoneNumber", accessor: "phoneNumber", align: "center" },
       { Header: "address", accessor: "address", align: "center" },
+      { Header: "action", accessor: "action", align: "center"}
     ],
     
     rows: [

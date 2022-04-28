@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { API } from 'aws-amplify';
 
 import { listProfiles } from 'graphql/queries';
@@ -103,14 +105,17 @@ function Profile() {
               <Box sx={{
                 textAlign: 'center'
               }}>
-                <Button variant="outlined" endIcon={<Edit/>}sx={{
-                  color: '#1EC1CB',
-                  bgcolor: '#ffffff',
-                  borderColor: '#1EC1CB',
-                  m: 2
-                }}>
-                  Edit Profile
-                </Button>
+                <Link to="/edit-profile">
+                  <Button variant="outlined" endIcon={<Edit/>}sx={{
+                    color: '#1EC1CB',
+                    bgcolor: '#ffffff',
+                    borderColor: '#1EC1CB',
+                    m: 2
+                  }}>
+                    Edit Profile
+                  </Button>
+                </Link>
+
                 <Box>
                   {profileData.address}
                 </Box>

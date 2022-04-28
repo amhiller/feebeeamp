@@ -184,13 +184,16 @@ function ProfileInformaton() {
           />
           </MDBox>
         </MDBox>
-        <MDButton 
-          variant="button"
-          color="info"
-          onClick={() => Update()}
-        >
-        Update
-        </MDButton>
+        <Link to="/profile">
+          <MDButton 
+            variant="button"
+            color="info"
+            onClick={() => Update()}
+          >
+          Update
+          </MDButton>
+        </Link>
+
       </MDBox>
 
 
