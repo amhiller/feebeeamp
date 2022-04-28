@@ -26,8 +26,8 @@ import checkAuthState from "authentication/authcheck";
 import { listProfiles } from 'graphql/queries';
 
 import Amplify from "aws-amplify"
-const initialFormState = { firstName: '', lastName: '', companyName: '', bio: '', owner_id: ''}
-const initialSubmitState = { firstName: '', lastName: '', companyName: '', bio: '', owner_id: ''}
+const initialFormState = { firstName: '', lastName: '', companyName: '', bio: '', owner_id: '', address: ''}
+const initialSubmitState = { firstName: '', lastName: '', companyName: '', bio: '', owner_id: '', address: ''}
 Amplify.configure(awsExports)
 
 var first = false;
@@ -66,6 +66,7 @@ function ProfileInformaton() {
         submitData['id'] = profileDatav1.data.listProfiles.items[0].id
         submitData['owner_id'] = profileDatav1.data.listProfiles.items[0].owner_id
         submitData['_version'] = profileDatav1.data.listProfiles.items[0]._version
+        submitData['address'] = profileDatav1.data.listPrfofiles.items[0].address
         console.log("here", submitData);
       }
       return profileDatav1 
@@ -170,6 +171,16 @@ function ProfileInformaton() {
             type="string"
             disabled
             label={formData.owner_id}
+          />
+          </MDBox>
+          <MDBox mb={2} >
+            <MDTypography variant="h6" fontWeight="bold">
+              address:&nbsp;
+            </MDTypography>
+            <MDInput
+            onChange={e => setSubmitData({...submitData, 'address': e.target.value})}
+            type="string"
+            label={formData.address}
           />
           </MDBox>
         </MDBox>

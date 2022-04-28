@@ -39,6 +39,7 @@ import CreateProject from "layouts/projects/createproject"
 import Project from "layouts/projects/project";
 import Crm from "layouts/crm";
 import AddClient from "layouts/crm/addClient"
+import Test from "layouts/test";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -178,6 +179,15 @@ const routes = [
     icon: <Icon fontSize="small">people</Icon>,
     route: "/crm/add-client",
     component: <AddClient />,
+    visible: false
+  },
+  {
+    type: "collapse",
+    name: "Test",
+    key: "test",
+    icon: <Icon fontSize="small">people</Icon>,
+    route: "/test",
+    component: <Test />,
     visible: false
   }
 ];

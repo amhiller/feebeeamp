@@ -205,6 +205,7 @@ export const onCreateProfile = /* GraphQL */ `
       lastName
       companyName
       bio
+      address
       verified
       createdAt
       updatedAt
@@ -224,6 +225,7 @@ export const onUpdateProfile = /* GraphQL */ `
       lastName
       companyName
       bio
+      address
       verified
       createdAt
       updatedAt
@@ -243,6 +245,7 @@ export const onDeleteProfile = /* GraphQL */ `
       lastName
       companyName
       bio
+      address
       verified
       createdAt
       updatedAt

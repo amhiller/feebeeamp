@@ -28,6 +28,7 @@ import React, { useEffect, useState } from 'react';
 
 import { listProfiles } from 'graphql/queries';
 import { listProjects } from 'graphql/queries';
+import { listClients } from 'graphql/queries';
 import { FaceRetouchingNaturalSharp } from "@mui/icons-material";
 import MDTypography from "components/MDTypography";
 import profile from "layouts/profile";
@@ -43,11 +44,13 @@ function Dashboard() {
   const first = false
   const [ projects, setProjects ] = useState([])
   const [ profileData, setProfileData ] = useState(initialProfileState)
+  const [ clients, setClients ] = useState([]);
 
   useEffect(() => {
     fetchProfiles();
     fetchAuth();
     fetchProjects();
+    fetchClients();
   }, []);
 
   async function fetchProfiles() {
@@ -88,6 +91,16 @@ function Dashboard() {
       console.log("Fetch Project Success", projectDatav1.data.listProjects.items)
     } catch (err) {
       console.log("Error", err)
+    }
+  }
+
+  async function fetchClients() {
+    console.log("Fetching Clients")
+    try {
+      const ClientDatav1 = await API.graphql({query: listClients});
+      setClients(ClientDatav1.data.listClients.items)
+    } catch(err) {
+      console.log("Error: ", err)
     }
   }
 
@@ -205,7 +218,12 @@ function Dashboard() {
               minwidth: 300,
               fontWeight: "medium"
             }}>
-              Clients
+              <Box>
+                Clients
+              </Box>
+              <Box>
+                Clients: {clients.length}
+              </Box>
             </Box>
         </Grid>
 

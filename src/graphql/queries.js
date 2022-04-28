@@ -193,6 +193,7 @@ export const getProfile = /* GraphQL */ `
       lastName
       companyName
       bio
+      address
       verified
       createdAt
       updatedAt
@@ -217,6 +218,7 @@ export const listProfiles = /* GraphQL */ `
         lastName
         companyName
         bio
+        address
         verified
         createdAt
         updatedAt
@@ -250,6 +252,7 @@ export const syncProfiles = /* GraphQL */ `
         lastName
         companyName
         bio
+        address
         verified
         createdAt
         updatedAt

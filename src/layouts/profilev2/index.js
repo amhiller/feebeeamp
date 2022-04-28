@@ -31,6 +31,7 @@ import protectedRoute from '../../context/protected'
 
 import BillingInformation from 'layouts/billing/components/BillingInformation'
 
+import Profile from 'layouts/profilev2/components/ProfileInformationv2'
 import ProfileInformation from 'layouts/profilev2/components/ProfileInformation';
 import { getProfile, listProfiles } from '../../graphql/queries';
 import React, { useEffect, useState } from 'react';
@@ -65,7 +66,7 @@ function Overview() {
     return(
     <DashboardLayout>
       <DashboardNavbar />
-      <ProfileInformation />
+      <Profile />
     </DashboardLayout>
   )
 }
