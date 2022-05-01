@@ -139,6 +139,7 @@
 }
 
 .lp-header {
+  background: white;
   padding: 50px 80px;
 }
 
@@ -174,8 +175,20 @@
   padding: 18px 0px;
 }
 
+.right-price-right-project {
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 10px;
+}
+
+.right-price-right-project h1 {
+  font-size: 48px;
+}
+
 .explore {
   background: #E6F6FF;
+  color: #041E77;
   padding: 88px;
   display: flex;
   flex-direction: column;
@@ -185,10 +198,77 @@
 
 .explore h1 {
   font-size: 55px;
+  margin-bottom: 24px;
 }
 
 .explore h2 {
   font-size: 43px;
+  margin-bottom: 24px;
+}
+
+img.rounded {
+  object-fit: cover;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+.explore-contractor-panel {
+  background: white;
+  color: #041E77;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 24px;
+}
+
+.explore-category-button-container {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 24px;
+}
+
+.explore-category-button {
+  font-size: 20px;
+  margin-left: 24px;
+  margin-right: 24px;
+  width: 145px;
+  height: 55px;
+  padding: 12px;
+  text-align: center;
+}
+
+.explore-category-button.selected {
+  background: #041E77;
+  color: white;
+  border-radius: 6px;
+}
+
+.explore-contractor-panel-header {
+  margin-bottom: 16px;
+}
+
+.explore-contractor-panel-name {
+  margin-left: 8px;
+  margin-right: 8px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.explore-contractor-panel-title {
+  font-size: 18px;
+}
+
+.explore-contractor-panel-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.explore-contractor-panel-images > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .become-pro {

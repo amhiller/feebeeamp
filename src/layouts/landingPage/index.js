@@ -6,6 +6,7 @@ function LandingPagev1() {
     return (
         <PageLayout >
         <AboveTheFold />
+        <RightPriceRightProject />
         <Explore />
         <BecomePro />
         <Footer />
@@ -16,6 +17,7 @@ export const LandingPage = () => (
     <div className="landing-page">
         <PageLayout >
         <AboveTheFold />
+        <RightPriceRightProject />
         <Explore />
         <BecomePro />
         <Footer />
@@ -24,7 +26,6 @@ export const LandingPage = () => (
 );
 
 const AboveTheFold = () => (
-    
     <div>
         <div className='lp-header'>
             <div className="lp-header-logo">
@@ -41,25 +42,61 @@ const AboveTheFold = () => (
             <h2>Clearer</h2>
             <div>We help contractors organize their projects to <br /> simplify the home remodeling process.</div>
             <div className="hero-btn-container">
-                <a className="btn-pill primary" >Get Started</a>
+                <a className="btn-pill primary" href="/">Get Started</a>
             </div>
             <div className="hero-btn-container">
-                <a className="btn-pill secondary">Join As Pro</a>
+                <a className="btn-pill secondary" href="/">Join As Pro</a>
             </div>
         </div>
     </div>
 );
 
+const RightPriceRightProject = () => (
+    <div className="right-price-right-project">
+        <div>
+            <img src="https://via.placeholder.com/500x500/F1FCFF" />
+        </div>
+        <div>
+            <h1>Get The Right Price For The Right Project</h1>
+            <div>
+                Whether local  guide  pricing or installation and  completion videos, 
+                FeeBee helps homeowners get the right price for your projects.  
+                FeeBee’s smart  specification builder helps you give contractors  
+                the  correct information to  build the  project of your dreams.
+            </div>
+        </div>
+    </div>
+)
+
 const Explore = () => (
     <div className="explore">
         <h1>Explore</h1>
-        <div>
-            <span>Contractors</span>
-            <span>How To</span>
-            <span>Inspiration</span>
+        <div className="explore-category-button-container">
+            <span className="explore-category-button selected">Contractors</span>
+            <span className="explore-category-button">How To</span>
+            <span className="explore-category-button">Inspiration</span>
         </div>
-        <h2>Find The Right Contractor For You</h2>
+        <ExploreContractorPanel />
     </div>
+)
+
+const ExploreContractorPanel = () => (
+    <div>
+        <h2>Find The Right Contractor For You</h2>
+        <div className="explore-contractor-panel">
+            <div className="explore-contractor-panel-header">
+                <img src="https://via.placeholder.com/30x30" />
+                <span className="explore-contractor-panel-name">Jake Sullivan, </span>
+                <span className="explore-contractor-panel-title">Carpenter</span>
+            </div>
+            <div className="explore-contractor-panel-images">
+                <div><img src="https://via.placeholder.com/200x200" /></div>
+                <div><img src="https://via.placeholder.com/200x200" /></div>
+                <div><img src="https://via.placeholder.com/200x200" /></div>
+            </div>
+        </div>
+    </div>
+
 )
 
 const BecomePro = () => (
