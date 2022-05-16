@@ -61,6 +61,7 @@ export const createProject = /* GraphQL */ `
       id
       name
       description
+      status
       tasks {
         items {
           id
@@ -115,6 +116,7 @@ export const updateProject = /* GraphQL */ `
       id
       name
       description
+      status
       tasks {
         items {
           id
@@ -169,6 +171,7 @@ export const deleteProject = /* GraphQL */ `
       id
       name
       description
+      status
       tasks {
         items {
           id

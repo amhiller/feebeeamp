@@ -71,6 +71,7 @@ export const getProject = /* GraphQL */ `
       id
       name
       description
+      status
       tasks {
         items {
           id
@@ -127,6 +128,7 @@ export const listProjects = /* GraphQL */ `
         id
         name
         description
+        status
         tasks {
           nextToken
           startedAt
@@ -164,6 +166,7 @@ export const syncProjects = /* GraphQL */ `
         id
         name
         description
+        status
         tasks {
           nextToken
           startedAt

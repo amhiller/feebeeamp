@@ -18,7 +18,7 @@
       "function": {
         "feebeeamplayer7dc86e60": {
           "deploymentBucketName": "amplify-amplifyc3202c3c37094-staging-233531-deployment",
-          "s3Key": "amplify-builds/feebeeamplayer7dc86e60-LambdaLayerVersionf50f3d77-build.zip"
+          "s3Key": "amplify-builds/feebeeamplayer7dc86e60-LambdaLayerVersion5f198dd7-build.zip"
         },
         "feebeeamp7aab853e": {
           "deploymentBucketName": "amplify-amplifyc3202c3c37094-staging-233531-deployment",

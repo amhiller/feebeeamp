@@ -13,6 +13,7 @@ type Project @model @auth(rules: [ { allow: owner } ]) {
   id: ID!
   name: String!
   description: String
+  status: String
   tasks: [Task] @hasMany
   requests: [Request] @hasMany
 }

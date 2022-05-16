@@ -46,6 +46,7 @@ export declare class Project {
   readonly id: string;
   readonly name: string;
   readonly description?: string | null;
+  readonly status?: string | null;
   readonly tasks?: (Task | null)[] | null;
   readonly requests?: (Request | null)[] | null;
   readonly createdAt?: string | null;
