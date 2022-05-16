@@ -26,7 +26,7 @@ import { createProject as CreateProjectMutation, deleteProject as DeleteProjectM
 
 Amplify.configure(awsExports)
 
-const initialProjectState = { name: '', description: '' };
+const initialProjectState = { name: '', description: '', status: 'ACTIVE' };
 
 function ProjectInformation() {
 
